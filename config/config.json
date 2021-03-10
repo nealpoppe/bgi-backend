@@ -1,13 +1,8 @@
 {
   "development": {
-    "database": "database_development",
+    "database": "bgi",
     "host": "127.0.0.1",
-    "dialect": "mysql"
-  },
-  "test": {
-    "database": "database_test",
-    "host": "127.0.0.1",
-    "dialect": "mysql"
+    "dialect": "postgres"
   },
   "production": {
     "database": "database_production",
