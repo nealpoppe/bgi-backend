@@ -13,6 +13,7 @@ const corsOptions = {
 app.use(cors(corsOptions))
 
 app.use('/game', routes.game);
+app.use('/user', routes.user);
 
 app.listen(3001, () => {
   console.log("I am listening")
