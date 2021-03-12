@@ -2,15 +2,6 @@ const User = require('../models').User;
 const Game = require('../models').Game;
 const UserGame = require('../models').UserGame;
 
-// const login = (req, res) => {
-//   User.findOne({
-//     where: {
-//       username: req.body.username,
-//       password: req.body.password
-//     }
-//   })
-// }
-
 const getProfile = (req,res) => {
   User.findByPk(req.params.id, {
     include: [
@@ -34,7 +25,6 @@ const getProfile = (req,res) => {
 
 
 module.exports = {
-  // login,
   getProfile,
   // editProfile
 }
