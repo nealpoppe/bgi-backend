@@ -2,7 +2,8 @@ const express = require('express');
 const router = express.Router();
 const ctrl = require('../controllers');
 
-router.get('/profile', ctrl.user.getProfile);
-// router.put('/profile', ctrl.user.editProfile);
+router.post('/signup', ctrl.auth.signup);
+router.post('/login', ctrl.auth.login);
+router.get('/', ctrl.auth.verifyUser);
 
 module.exports = router;
