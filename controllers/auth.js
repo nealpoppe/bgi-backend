@@ -45,8 +45,6 @@ const login = (req, res) => {
   console.log("login auth.js");
   console.log('req.body');
   console.log(req.body);
-  // console.log('req.params');
-  // console.log(req.params);
     User.findOne({
         where: {
             username: req.body.username
@@ -67,12 +65,8 @@ const login = (req, res) => {
                             expiresIn: "30 days"
                         }
                     )
-                    res.status(200).json({
-                        "token" : token,
-                        "user": foundUser
-                    });
+                    res.send(foundUser);
                 } else {
-                    console.log("username");
                     res.status(400).send(`ERROR: Incorrect Username/Password`);
                 }
             })
@@ -88,7 +82,7 @@ const login = (req, res) => {
 
 const verifyUser = (req, res) => {
     User.findByPk(req.params.id, {
-        attributes: ['id', 'username', 'updatedAt', 'email', 'name', 'img']
+        attributes: ['id', 'username']
     })
     .then(foundUser => {
         res.status(200).json(foundUser);
