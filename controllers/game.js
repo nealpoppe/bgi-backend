@@ -1,4 +1,5 @@
 const Game = require('../models').Game;
+const UserGame = require('../models').UserGame;
 
 const getAllGames = (req, res) => {
   Game.findAll()
@@ -13,6 +14,22 @@ const getAllGames = (req, res) => {
 const addGame = (req,res) => {
   console.log("in addGame")
   console.log(req.body);
+  const gameData = {
+    title: req.body.title,
+    gameid: req.body.gameid
+  }
+  Game.create(gameData)
+  .then(createdGame => {
+    const userData = {
+      userId: req.body.userId,
+      gameId: createdGame.id
+    }
+    UserGame.create(userData)
+    .then(userGameCreated => {
+      console.log(userGameCreated)
+    })
+    // console.log(createdGame)
+  })
 }
 
 module.exports = {
