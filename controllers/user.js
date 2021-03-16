@@ -15,6 +15,13 @@ const login = (req, res) => {
     })
 };
 
+const signup = (req, res) => {
+    User.create(req.body)
+    .then(newUser => {
+        res.send(newUser);
+    })
+};
+
 const getProfile = (req,res) => {
   User.findByPk(req.params.id, {
     include: [
@@ -39,6 +46,7 @@ const getProfile = (req,res) => {
 
 module.exports = {
   login,
+  signup,
   getProfile,
   // editProfile
 }

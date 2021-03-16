@@ -10,6 +10,12 @@ const getAllGames = (req, res) => {
   })
 }
 
+const addGame = (req,res) => {
+  console.log("in addGame")
+  console.log(req.body);
+}
+
 module.exports = {
   getAllGames,
+  addGame
 }
