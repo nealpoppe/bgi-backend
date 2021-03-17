@@ -3,10 +3,17 @@
     "database": "bgi",
     "host": "127.0.0.1",
     "dialect": "postgres"
-  },
-  "production": {
-    "database": "database_production",
-    "host": "127.0.0.1",
-    "dialect": "mysql"
-  }
+},
+    "production": {
+    "use_env_variable": "DATABASE_URL",
+    "dialectOptions": {
+        "ssl": {
+          "require": true,
+          "rejectUnauthorized": false
+        }
+    }
+},
+    "scripts": {
+    "start": "node server.js"
+    }
 }

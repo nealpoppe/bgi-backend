@@ -35,6 +35,7 @@ const addGame = (req,res) => {
 const deleteGame = (req,res) => {
   console.log("in deleteGame");
   console.log(req.body);
+  
   UserGame.destroy({
     where: {
       userId: req.body.userId,
