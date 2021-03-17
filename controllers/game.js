@@ -32,7 +32,19 @@ const addGame = (req,res) => {
   })
 }
 
+const deleteGame = (req,res) => {
+  console.log("in deleteGame");
+  console.log(req.body);
+  UserGame.destroy({
+    where: {
+      userId: req.body.userId,
+      gameId: req.body.gameId,
+    }
+  })
+}
+
 module.exports = {
   getAllGames,
-  addGame
+  addGame,
+  deleteGame
 }

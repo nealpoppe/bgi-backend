@@ -3,6 +3,7 @@ require('dotenv').config();
 const express = require('express');
 const app = express();
 const routes = require('./routes');
+const methodOverride = require('method-override');
 const cors = require('cors');
 const jwt = require("jsonwebtoken");
 const bodyParser = require('body-parser');
@@ -16,10 +17,11 @@ const corsOptions = {
 
 app.use(cors(corsOptions));
 app.use(bodyParser.json());
+app.use(methodOverride('_method'));
 
-const verifyToken = (req, res, next) => {
-  console.log("verify token")
-    let token = req.headers['authorization'];
+// const verifyToken = (req, res, next) => {
+//   console.log("verify token")
+//     let token = req.headers['authorization'];
     // if(token){
     //     token = token.substring(7) //remove string Bearer from the token
     // }
@@ -33,7 +35,7 @@ const verifyToken = (req, res, next) => {
     //     console.log(decodedUser);
     //     next();// for control to go to the next line of code
     // })
-}
+// }
 
 // app.use('/auth', routes.auth);
 app.use('/game', routes.game);
