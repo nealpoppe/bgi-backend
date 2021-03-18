@@ -9,7 +9,7 @@ const jwt = require("jsonwebtoken");
 const bodyParser = require('body-parser');
 const cookieParser = require("cookie-parser");
 const corsOptions = {
-    origin: ['http://localhost:3000'],
+    origin: ['https://bgi-backend.herokuapp.com'],
     methods: "GET,POST,PUT,DELETE",
     credentials: true, //allows session cookies to be sent back and forth
     optionsSuccessStatus: 200 //legacy browsers
